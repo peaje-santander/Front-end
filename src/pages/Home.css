@@ -1,0 +1,29 @@
+
+
+#bghome{
+    min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
+
+
+    
+}
+#bghomelogo{
+   
+    min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
+    background: url(/src/images/logo.svg);
+    background-repeat: no-repeat;
+    background-position: 65% 5%;
+    left: 50%;
+    opacity: 0.4;
+}
+
+#bghometext{
+    padding-top: 15%;
+    padding-left: 35%;
+    font-size: 64px;
+    background-size: 100%;
+    opacity: 0.4;
+}
+
+
+
+
