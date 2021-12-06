@@ -7,6 +7,7 @@ import Dropdown from './dropdown/Dropdown';
 import MenuItem from './menu-item/MenuItem';
 import Checkbox from './checkbox/Checkbox';
 import Input from './input/Input';
+import Table from './table/Table';
 
 export {
     Button,
@@ -15,6 +16,7 @@ export {
     SmallBox,
     Dropdown,
     MenuItem,
+    Table,
     Checkbox,
     Input
 };
