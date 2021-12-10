@@ -11,20 +11,40 @@ const Pago = () => {
     const [t] = useTranslation();
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: ''
+            IdCategoria: '',
+            IdPlaca: '',
+            IdFactura: '',
+            Recarga: false,
+            RFID: false,
+            Efectivo: false,
+            PgTarjeta: false,
+            Saldo: '',
+            FechaTarjeta: '',
+            NumeroTarjeta: ''
         },
         validationSchema: Yup.object({
-            email: Yup.string()
-                .email('Email inválido')
+            IdCategoria: Yup.string()
+                .min(1, 'Debe tener al menos 1 caracteres')
                 .required('Obligatorio '),
-            password: Yup.string()
-                .min(5, 'Debe tener al menos 5 caracteres')
-                .max(30, 'Debe tener menos de 30 caracteres')
-                .required('Obligatorio')
+            IdPlaca: Yup.string()
+                .min(1, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            IdFactura: Yup.string()
+                .min(1, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            RFID: Yup.boolean().oneOf([true], 'a'),
+            Recarga: Yup.boolean().oneOf([true], 'a'),
+            PgTarjeta: Yup.boolean().oneOf([true], 'a'),
+            Efectivo: Yup.boolean().oneOf([true], 'a').required('Obligatorio ')
         }),
         onSubmit: (values) => {
-            Pago(values.email, values.password);
+            // eslint-disable-next-line no-console
+            console.log(
+                values.IdCategoria,
+                values.IdFactura,
+                values.IdPlaca,
+                values.RFID
+            );
         }
     });
 
@@ -37,19 +57,81 @@ const Pago = () => {
                             <form onSubmit={formik.handleSubmit}>
                                 <div className="container">
                                     <div className="row justify-content-evenly">
+                                        <div className="col-sm">
+                                            <label
+                                                className="form-label"
+                                                htmlFor="Recarga"
+                                            >
+                                                Recargar
+                                                <Checkbox
+                                                    name="Recarga"
+                                                    formik={formik}
+                                                    formikFieldProps={formik.getFieldProps(
+                                                        'Recarga'
+                                                    )}
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="col-sm">
+                                            <label
+                                                className="form-label"
+                                                htmlFor="RFID"
+                                            >
+                                                Comprar RFID
+                                                <Checkbox
+                                                    name="RFID"
+                                                    formik={formik}
+                                                    formikFieldProps={formik.getFieldProps(
+                                                        'Recarga'
+                                                    )}
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="col-sm">
+                                            <label
+                                                className="form-label"
+                                                htmlFor="PgTarjeta"
+                                            >
+                                                Pagar con tarjeta
+                                                <Checkbox
+                                                    name="PgTarjeta"
+                                                    formik={formik}
+                                                    formikFieldProps={formik.getFieldProps(
+                                                        'PgTarjeta'
+                                                    )}
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="col-sm">
+                                            <label
+                                                className="form-label"
+                                                htmlFor="Efectivo"
+                                            >
+                                                Efectivo
+                                                <Checkbox
+                                                    name="Efectivo"
+                                                    formik={formik}
+                                                    formikFieldProps={formik.getFieldProps(
+                                                        'PgTarjeta'
+                                                    )}
+                                                />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className="row justify-content-evenly">
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="placa"
+                                                htmlFor="IdPlaca"
                                             >
                                                 Placa
                                                 <Input
                                                     placeholder="No. placa"
                                                     type="text"
-                                                    id="placa"
+                                                    name="IdPlaca"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'password'
+                                                        'IdPlaca'
                                                     )}
                                                 />
                                             </label>
@@ -57,16 +139,16 @@ const Pago = () => {
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="p2"
+                                                htmlFor="IdDocumento"
                                             >
                                                 No. Cedula
                                                 <Input
                                                     placeholder="No. Cedula"
                                                     type="text"
-                                                    id="p2"
+                                                    id="IdDocumento"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'password'
+                                                        'IdDocumento'
                                                     )}
                                                 />
                                             </label>
@@ -74,16 +156,16 @@ const Pago = () => {
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="p3"
+                                                htmlFor="ValorRecarga"
                                             >
                                                 Valor
                                                 <Input
                                                     placeholder="Valor a recargar"
                                                     type="text"
-                                                    id="p3"
+                                                    id="ValorRecarga"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'password'
+                                                        'ValorRecarga'
                                                     )}
                                                 />
                                             </label>
@@ -111,16 +193,16 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="p5"
+                                            htmlFor="NumTarjetas"
                                         >
                                             No. de tarjeta
                                             <Input
                                                 placeholder="No. de tarjeta"
                                                 type="password"
-                                                id="p5"
+                                                id="NumTarjeta"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
-                                                    'password'
+                                                    'NumTarjeta'
                                                 )}
                                             />
                                         </label>
@@ -130,16 +212,16 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="p6"
+                                            htmlFor="ExpFecha"
                                         >
                                             Fecha de expiracion
                                             <Input
                                                 placeholder="mm/aa"
                                                 type="password"
-                                                id="p6"
+                                                id="ExpFecha"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
-                                                    'password'
+                                                    'ExpFecha'
                                                 )}
                                             />
                                         </label>
@@ -147,13 +229,13 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="p7"
+                                            htmlFor="CodigoSeg"
                                         >
                                             Codigo de seguridad
                                             <Input
                                                 placeholder="123"
                                                 type="password"
-                                                id="p7"
+                                                id="CodigoSeg"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
                                                     'password'
