@@ -18,14 +18,35 @@ const tracksData = [
 const AdminPeajes = () => {
     const formik = useFormik({
         initialValues: {
-            IdConsor: '',
-            Info: ''
+            Id: ' ',
+            Nombre: '',
+            Consorcio: '',
+            Ubicacion: '',
+            Categoria: '',
+            Valor: ''
         },
         validationSchema: Yup.object({
-            IdConsor: Yup.string()
+            Id: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
                 .required('Obligatorio '),
-            Info: Yup.string()
+            Nombre: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Consorcio: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Ubicacion: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Categoria: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Valor: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
                 .max(30, 'Debe tener menos de 30 caracteres')
                 .required('Obligatorio')

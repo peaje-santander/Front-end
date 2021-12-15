@@ -21,14 +21,45 @@ const tracksData = [
 const AdminEmpleado = () => {
     const formik = useFormik({
         initialValues: {
-            IdConsor: '',
-            Info: ''
+            TipoDocumento: '',
+            Numero: '',
+            Nombre: '',
+            Email: '',
+            Telefono: '',
+            Direccion: '',
+            Consorcio: '',
+            Ciudad: ''
         },
         validationSchema: Yup.object({
-            IdConsor: Yup.string()
+            TipoDocumento: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
                 .required('Obligatorio '),
-            Info: Yup.string()
+            Numero: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Nombre: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Email: Yup.string()
+                .email('Email invalido')
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Telefono: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Direccion: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Consorcio: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Ciudad: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
                 .max(30, 'Debe tener menos de 30 caracteres')
                 .required('Obligatorio')
@@ -113,7 +144,7 @@ const AdminEmpleado = () => {
                                 <div className="card card-outline card-primary">
                                     <div className="card-header text-center" />
                                     <div className="card-body">
-                                        <form>
+                                        <form onSubmit={formik.handleSubmit}>
                                             <div className="mb-3">
                                                 <label htmlFor="TipoDocumento">
                                                     Tipo de Documento
@@ -133,7 +164,7 @@ const AdminEmpleado = () => {
                                                     Número
                                                     <Input
                                                         placeholder="Numero"
-                                                        type="sting"
+                                                        type="Text"
                                                         name="Numero"
                                                         formik={formik}
                                                         formikFieldProps={formik.getFieldProps(
@@ -161,7 +192,7 @@ const AdminEmpleado = () => {
                                                     Email
                                                     <Input
                                                         placeholder="Email"
-                                                        type="Text"
+                                                        type="Email"
                                                         name="Email"
                                                         formik={formik}
                                                         formikFieldProps={formik.getFieldProps(
@@ -171,11 +202,11 @@ const AdminEmpleado = () => {
                                                 </label>
                                             </div>
                                             <div className="mb-3">
-                                                <label htmlFor="Teléfono">
+                                                <label htmlFor="Telefono">
                                                     Teléfono
                                                     <Input
                                                         placeholder="Telefono"
-                                                        type="string"
+                                                        type="Text"
                                                         name="Telefono"
                                                         formik={formik}
                                                         formikFieldProps={formik.getFieldProps(
@@ -188,7 +219,7 @@ const AdminEmpleado = () => {
                                                 <label htmlFor="Direccion">
                                                     Dirección
                                                     <Input
-                                                        placeholder="Nombre"
+                                                        placeholder="Dirección"
                                                         type="string"
                                                         name="Direccion"
                                                         formik={formik}

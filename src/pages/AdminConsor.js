@@ -18,14 +18,35 @@ const tracksData = [
 const AdminConsorcio = () => {
     const formik = useFormik({
         initialValues: {
-            IdConsor: '',
-            Info: ''
+            Consorcio: ' ',
+            Nombre: '',
+            Ciudad: '',
+            Peajes: '',
+            Categoria: '',
+            Valor: ''
         },
         validationSchema: Yup.object({
-            IdConsor: Yup.string()
+            Consorcio: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
-                .required('Obligatorio '),
-            Info: Yup.string()
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Nombre: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Ciudad: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Peajes: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Categoria: Yup.string()
+                .min(5, 'Debe tener al menos 5 caracteres')
+                .max(30, 'Debe tener menos de 30 caracteres')
+                .required('Obligatorio'),
+            Valor: Yup.string()
                 .min(5, 'Debe tener al menos 5 caracteres')
                 .max(30, 'Debe tener menos de 30 caracteres')
                 .required('Obligatorio')
@@ -111,15 +132,15 @@ const AdminConsorcio = () => {
                                     <div className="card-body">
                                         <form onSubmit={formik.handleSubmit}>
                                             <div className="mb-3">
-                                                <label htmlFor="Id">
+                                                <label htmlFor="Consorcio">
                                                     Consorcio
                                                     <Input
-                                                        placeholder="Id"
-                                                        type="String"
-                                                        name="Id"
+                                                        placeholder="Consorcio"
+                                                        type="Text"
+                                                        name="Consorcio"
                                                         formik={formik}
                                                         formikFieldProps={formik.getFieldProps(
-                                                            'Id'
+                                                            'Consorcio'
                                                         )}
                                                     />
                                                 </label>
@@ -182,10 +203,10 @@ const AdminConsorcio = () => {
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Valor">
-                                                    valor
+                                                    Valor
                                                     <Input
                                                         placeholder="Valor"
-                                                        type="String"
+                                                        type="Text"
                                                         name="Valor"
                                                         formik={formik}
                                                         formikFieldProps={formik.getFieldProps(

@@ -1,49 +1,60 @@
+/* eslint-disable no-console */
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import './pago.css';
 import {Checkbox, Button, Input} from '@components';
 import {useFormik} from 'formik';
-import {useTranslation} from 'react-i18next';
 
 import * as Yup from 'yup';
 
 const Pago = () => {
-    const [t] = useTranslation();
     const formik = useFormik({
         initialValues: {
-            IdCategoria: '',
-            IdPlaca: '',
-            IdFactura: '',
             Recarga: false,
             RFID: false,
+            PagoTarjeta: false,
             Efectivo: false,
-            PgTarjeta: false,
-            Saldo: '',
+            Placa: '',
+            Documento: '',
+            Valor: '',
+            Nombre: '',
+            NumTarjeta: '',
             FechaTarjeta: '',
-            NumeroTarjeta: ''
+            CVV: ''
         },
         validationSchema: Yup.object({
-            IdCategoria: Yup.string()
-                .min(1, 'Debe tener al menos 1 caracteres')
-                .required('Obligatorio '),
-            IdPlaca: Yup.string()
-                .min(1, 'Debe tener al menos 1 caracteres')
-                .required('Obligatorio '),
-            IdFactura: Yup.string()
-                .min(1, 'Debe tener al menos 1 caracteres')
-                .required('Obligatorio '),
             RFID: Yup.boolean().oneOf([true], 'a'),
             Recarga: Yup.boolean().oneOf([true], 'a'),
-            PgTarjeta: Yup.boolean().oneOf([true], 'a'),
-            Efectivo: Yup.boolean().oneOf([true], 'a').required('Obligatorio ')
+            PagoTarjeta: Yup.boolean().oneOf([true], 'a'),
+            Efectivo: Yup.boolean().oneOf([true], 'a').required('Obligatorio '),
+            Nombre: Yup.string()
+                .min(2, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            Placa: Yup.string()
+                .min(6, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            Documento: Yup.string()
+                .min(10, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            Valor: Yup.string()
+                .min(2, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            FechaTarjeta: Yup.string()
+                .min(4, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            NumTarjeta: Yup.string()
+                .min(12, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio '),
+            CVV: Yup.string()
+                .min(3, 'Debe tener al menos 1 caracteres')
+                .required('Obligatorio ')
         }),
         onSubmit: (values) => {
-            // eslint-disable-next-line no-console
             console.log(
-                values.IdCategoria,
-                values.IdFactura,
-                values.IdPlaca,
-                values.RFID
+                values.Placa,
+                values.RFID,
+                values.CVV
             );
         }
     });
@@ -90,14 +101,14 @@ const Pago = () => {
                                         <div className="col-sm">
                                             <label
                                                 className="form-label"
-                                                htmlFor="PgTarjeta"
+                                                htmlFor="PagoTarjeta"
                                             >
                                                 Pagar con tarjeta
                                                 <Checkbox
-                                                    name="PgTarjeta"
+                                                    name="PagoTarjeta"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'PgTarjeta'
+                                                        'PagoTarjeta'
                                                     )}
                                                 />
                                             </label>
@@ -112,7 +123,7 @@ const Pago = () => {
                                                     name="Efectivo"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'PgTarjeta'
+                                                        'Efectivo'
                                                     )}
                                                 />
                                             </label>
@@ -122,16 +133,16 @@ const Pago = () => {
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="IdPlaca"
+                                                htmlFor="Placa"
                                             >
                                                 Placa
                                                 <Input
                                                     placeholder="No. placa"
-                                                    type="text"
-                                                    name="IdPlaca"
+                                                    type="Text"
+                                                    name="Placa"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'IdPlaca'
+                                                        'Placa'
                                                     )}
                                                 />
                                             </label>
@@ -139,16 +150,16 @@ const Pago = () => {
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="IdDocumento"
+                                                htmlFor="Documento"
                                             >
                                                 No. Cedula
                                                 <Input
                                                     placeholder="No. Cedula"
                                                     type="text"
-                                                    id="IdDocumento"
+                                                    id="Documento"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'IdDocumento'
+                                                        'Documento'
                                                     )}
                                                 />
                                             </label>
@@ -156,16 +167,16 @@ const Pago = () => {
                                         <div className="col-4">
                                             <label
                                                 className="form-label"
-                                                htmlFor="ValorRecarga"
+                                                htmlFor="Valor"
                                             >
                                                 Valor
                                                 <Input
                                                     placeholder="Valor a recargar"
                                                     type="text"
-                                                    id="ValorRecarga"
+                                                    id="Valor"
                                                     formik={formik}
                                                     formikFieldProps={formik.getFieldProps(
-                                                        'ValorRecarga'
+                                                        'Valor'
                                                     )}
                                                 />
                                             </label>
@@ -176,16 +187,16 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="p4"
+                                            htmlFor="Nombre"
                                         >
                                             Nombre de titular
                                             <Input
                                                 placeholder="Nombre completo"
                                                 type="text"
                                                 formik={formik}
-                                                id="p4"
+                                                id="Nombre"
                                                 formikFieldProps={formik.getFieldProps(
-                                                    'password'
+                                                    'Nombre'
                                                 )}
                                             />
                                         </label>
@@ -193,12 +204,12 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="NumTarjetas"
+                                            htmlFor="NumTarjeta"
                                         >
                                             No. de tarjeta
                                             <Input
                                                 placeholder="No. de tarjeta"
-                                                type="password"
+                                                type="CVV"
                                                 id="NumTarjeta"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
@@ -212,16 +223,16 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="ExpFecha"
+                                            htmlFor="FechaTarjeta"
                                         >
                                             Fecha de expiracion
                                             <Input
                                                 placeholder="mm/aa"
-                                                type="password"
-                                                id="ExpFecha"
+                                                type="Text"
+                                                name="FechaTarjeta"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
-                                                    'ExpFecha'
+                                                    'FechaTarjeta'
                                                 )}
                                             />
                                         </label>
@@ -229,16 +240,16 @@ const Pago = () => {
                                     <div className="col-4">
                                         <label
                                             className="form-label"
-                                            htmlFor="CodigoSeg"
+                                            htmlFor="CVV"
                                         >
                                             Codigo de seguridad
                                             <Input
                                                 placeholder="123"
-                                                type="password"
-                                                id="CodigoSeg"
+                                                type="Text"
+                                                name="CVV"
                                                 formik={formik}
                                                 formikFieldProps={formik.getFieldProps(
-                                                    'password'
+                                                    'CVV'
                                                 )}
                                             />
                                         </label>
@@ -247,14 +258,6 @@ const Pago = () => {
                                         <Button block type="submit">
                                             Pagar
                                         </Button>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-8">
-                                        <Checkbox
-                                            checked={false}
-                                            label={t('login.label.rememberMe')}
-                                        />
                                     </div>
                                 </div>
                             </form>
