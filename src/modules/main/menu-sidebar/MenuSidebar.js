@@ -10,46 +10,30 @@ export const MENU = [
     },
     {
         name: 'header.label.payment',
-        path: '/pago'
+        path: '/usuario/recarga'
     },
     {
         name: 'Movimientos',
-        path: '/movimientos'
+        path: '/usuario/movimientos'
     },
     {
         name: 'Admin',
-        path: '/admin'
-    },
-
-    {
-        name: 'Admin Peajes',
-        path: '/adminPeajes'
-    },
-
-    {
-        name: 'Admin Consorcio',
-        path: '/adminConsorcio'
-    },
-    {
-        name: 'Admin Empleado',
-        path: '/adminEmpleado'
-    },
-    {
-        name: 'Admin Factura',
-        path: '/adminFact'
-    },
-
-    {
-        name: 'menusidebar.label.mainMenu',
         children: [
             {
-                name: 'menusidebar.label.subMenu',
-                path: '/sub-menu-1'
+                name: 'Admin Factura',
+                path: '/admin/factura'
             },
-
             {
-                name: 'menusidebar.label.blank',
-                path: '/sub-menu-2'
+                name: 'Admin Empleado',
+                path: '/admin/empleado'
+            },
+            {
+                name: 'Admin Consorcio',
+                path: '/admin/consorcio'
+            },
+            {
+                name: 'Admin Peajes',
+                path: '/admin/pleajes'
             }
         ]
     }

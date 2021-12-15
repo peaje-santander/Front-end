@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {useTranslation} from 'react-i18next';
-import {Input, Button} from '@components';
+import {Button} from '@components';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 const ForgotPassword = () => {
@@ -27,8 +27,8 @@ const ForgotPassword = () => {
             <div className="card card-outline card-primary">
                 <div className="card-header text-center">
                     <Link to="/" className="h1">
-                        <b>Admin</b>
-                        <span>LTE</span>
+                        <b>Peajes</b>
+                        <span>Santander</span>
                     </Link>
                 </div>
                 <div className="card-body">
@@ -36,8 +36,8 @@ const ForgotPassword = () => {
                         {t('recover.forgotYourPassword')}
                     </p>
                     <form onSubmit={requestNewPassword}>
-                        <Input
-                            className="mb-3"
+                        <input
+                            className="mb-3 input-group is-valid"
                             icon={faEnvelope}
                             ref={setEmailInputRef}
                             type="email"

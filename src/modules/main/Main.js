@@ -5,8 +5,6 @@ import {Gatekeeper} from 'gatekeeper-client-sdk';
 import {loadUser, logoutUser} from '@store/reducers/auth';
 import {toggleSidebarMenu} from '@app/store/reducers/ui';
 
-import Blank from '@pages/Blank';
-import SubMenu from '@pages/SubMenu';
 import Home from '@pages/Home';
 import Pago from '@pages/Pago';
 import Admin from '@pages/Admin';
@@ -16,8 +14,6 @@ import AdminPeajes from '@pages/AdminPeajes';
 import AdminEmpleado from '@pages/AdminEmpleado';
 import Movimientos from '@pages/Movimientos';
 import Empleado from '@pages/Empleado';
-
-import Profile from '@pages/profile/Profile';
 
 import Header from './header/Header';
 import Footer from './footer/Footer';
@@ -90,45 +86,41 @@ const Main = () => {
                     <div className="pt-3" />
                     <section className="content">
                         <Switch>
-                            <Route exact path="/sub-menu-2" component={Blank} />
                             <Route
                                 exact
-                                path="/sub-menu-1"
-                                component={SubMenu}
-                            />
-                            <Route
-                                exact
-                                path="/Empleado"
+                                path="/empleado"
                                 component={Empleado}
                             />
-                            <Route exact path="/blank" component={Blank} />
-                            <Route exact path="/profile" component={Profile} />
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/pago" component={Pago} />
+                            <Route
+                                exact
+                                path="/usuario/pago"
+                                component={Pago}
+                            />
                             <Route exact path="/admin" component={Admin} />
                             <Route
                                 exact
-                                path="/movimientos"
+                                path="/usuario/movimientos"
                                 component={Movimientos}
                             />
                             <Route
                                 exact
-                                path="/adminConsorcio"
+                                path="/admin/consorcio"
                                 component={AdminConsor}
                             />
                             <Route
                                 exact
-                                path="/adminFact"
+                                path="/admin/factura"
                                 component={AdminFact}
                             />
                             <Route
                                 exact
-                                path="/adminPeajes"
+                                path="/admin/peajes"
                                 component={AdminPeajes}
                             />
                             <Route
                                 exact
-                                path="/adminEmpleado"
+                                path="/admin/empleado"
                                 component={AdminEmpleado}
                             />
                         </Switch>

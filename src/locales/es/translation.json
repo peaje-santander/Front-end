@@ -1,0 +1,99 @@
+{
+    "login": {
+        "label": {
+            "signIn": "Inicia sesión en tu cuenta",
+            "rememberMe": "Recuérdame",
+            "forgotPass": "Olvidé mi contraseña",
+            "registerNew": "Registrar una nueva cuenta"
+        },
+        "button": {
+            "signIn": {
+                "label": "Inicia sesión",
+                "social": "Inicia sesión usando {{what}}"
+            },
+            "signUp": {
+                "label": "Cerrar sesión",
+                "social": "Inicia sesión usando {{what}}"
+            },
+            "signOut": "Cerrar sesión"
+        }
+    },
+    "register": {
+        "alreadyHave": "Ya tengo una cuenta",
+        "registerNew": "Registrar una nueva cuenta",
+        "label": "Registrarse"
+    },
+    "recover": {
+        "forgotYourPassword": "¿Olvidaste tu contraseña? Aquí la puedes recuperar.",
+        "oneStepAway": "Estas a un paso de recuperar tu contraseña, recupérala ahora",
+        "changePassword": "Cambiar contraseña",
+        "requestNewPassword": "Pedir una nueva contraseña"
+    },
+    "main": {
+        "label": {
+            "moreInfo": "Más información",
+            "follow": "Seguir",
+            "aboutMe": "Sobre mí",
+            "education": "Educación",
+            "location": "Ubicación",
+            "skills": "Habiliades",
+            "notes": "Notas",
+            "activity": "Actividad",
+            "timeline": "Línea temporal",
+            "settings": "Ajustes"
+        }
+    },
+    "header": {
+        "label": {
+            "home": "Home",
+            "contact": "Contacto",
+            "payment": "Recarga"
+        },
+        "language": {
+            "turkish": "Turco",
+            "english": "Inglés",
+            "german": "Alemán",
+            "french": "Francés",
+            "spanish": "Español"
+        },
+        "messages": {
+            "ago": "Hace {{quantity}} {{unit}}",
+            "seeAll": "Ver todos los mensajes"
+        },
+        "notifications": {
+            "count": "{{quantity}} Notificaciones",
+            "newMessagesCount": "{{quantity}} nuevos mensajes",
+            "friendRequestsCount": "{{quantity}} solicitudes de amistad",
+            "reportsCount": "{{quantity}} nuevos reportes",
+            "seeAll": "Ver todas las notificaciones"
+        },
+        "user": {
+            "profile": "Perfiles",
+            "followers": "Seguidores",
+            "sales": "Ventas",
+            "friends": "Amigos"
+        }
+    },
+    "menusidebar": {
+        "label": {
+            "dashboard": "Dashboard",
+            "profile": "Perfil",
+            "blank": "Arréglame",
+            "mainMenu": "Menú pricipal",
+            "subMenu": "Sub Menu"
+        }
+    },
+    "footer": {
+        "version": "Versión",
+        "copyright": "All rights reserved."
+    },
+    "views": {
+        "user": {
+            "profile": "Perfil de usuario",
+            "following": "Siguiendo"
+        }
+    },
+    "measurement": {
+        "quantityUnit": "{{quantity}} {{unit}}"
+    }
+}
