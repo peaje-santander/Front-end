@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import {Table, SmallBox, Button, Input} from '@components';
+import {Table, Boxes, Button, Input} from '@components';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
@@ -75,53 +75,7 @@ const AdminEmpleado = () => {
                 <div className="container-fluid">
                     <div className="card">
                         <div className="card-body">
-                            <div className="row">
-                                <div className="col col">
-                                    <SmallBox
-                                        count="consorcio"
-                                        title=" "
-                                        type="info"
-                                        icon="ion-android-people"
-                                        navigateTo="/"
-                                    />
-                                </div>
-                                <div className="col-sm-3 col-4">
-                                    <SmallBox
-                                        count="Peajes"
-                                        title=" "
-                                        type="info"
-                                        icon="ion-android-people"
-                                        navigateTo="/"
-                                    />
-                                </div>
-                                <div className="col-sm-3 col-4">
-                                    <SmallBox
-                                        count="Empleados"
-                                        title=" "
-                                        type="info"
-                                        icon="ion-android-people"
-                                        navigateTo="/"
-                                    />
-                                </div>
-                                <div className="col-sm-3 col-4">
-                                    <SmallBox
-                                        count="Facturación"
-                                        title=" "
-                                        type="info"
-                                        icon="ion-android-people"
-                                        navigateTo="/"
-                                    />
-                                </div>
-                                <div className="Cobro">
-                                    <SmallBox
-                                        count="Cobro"
-                                        title=" "
-                                        type="info"
-                                        icon="ion-android-people"
-                                        navigateTo="/"
-                                    />
-                                </div>
-                            </div>
+                            <Boxes />
                             <div>
                                 <Table
                                     tableData={tracksData}
